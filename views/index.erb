@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chitter</title>
+  <link rel="stylesheet" type="text/css" href="/css/application.css">  
+</head>
+<header>Chitter</header>
+<body>
+<section>
+  Peeps:
+  <% @peeps.each do |tweet| %>        
+    <%= tweet.peep %>
+  <% end %>  
+</section>
+</body>
+</html>

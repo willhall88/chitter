@@ -1,7 +1,7 @@
-When(/^there is a peep$/) do
-  Peep.count = 1
+When(/^there is a peep "(.*?)"$/) do |text|
+  Peep.create(:peep => text)
 end
 
-Then(/^I shouldsee the peep$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see the peep "(.*?)"$/) do |text|
+  page.should have_content text
 end
