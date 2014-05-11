@@ -9,6 +9,8 @@
 <section>
   Peeps:
   <% @peeps.each do |tweet| %>        
+    <%= tweet.user.name %> 
+    @<%= tweet.user.username %>
     <%= tweet.peep %>
   <% end %>  
 </section>

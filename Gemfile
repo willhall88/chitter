@@ -9,6 +9,7 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
+gem 'launchy'
 
 group :development, :test do
   gem 'cucumber-sinatra'
