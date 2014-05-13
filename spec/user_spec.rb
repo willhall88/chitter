@@ -20,4 +20,12 @@ describe User do
     expect(User.count).to eq 1
   end
 
+  it "should have a secure password" do
+    expect(User.count).to eq (0)
+    user = User.create(:name => "Will", :email => "willhall88@hotmail.com", :password => "password123", :password_confirmation => "password123")
+    expect(User.count).to eq (1)
+    user = User.create(:name => "Will", :email => "willhall88@hotmail.com", :password => "password123", :password_confirmation => "password456")
+    expect(User.count).to eq (1)
+  end 
+
 end

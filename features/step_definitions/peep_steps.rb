@@ -19,3 +19,7 @@ end
 Then(/^I should see the users handle "(.*?)"$/) do |handle|
   page.should have_content handle
 end
+
+Then(/^I should view "(.*?)"$/) do |name|
+  page.should have_content name
+end

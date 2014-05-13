@@ -12,4 +12,3 @@ When I am on the homepage
 Then I should see the peep "This is a peep"
 And I should see the users name "Will"
 And I should see the users handle "@will" 
-

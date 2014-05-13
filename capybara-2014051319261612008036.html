@@ -7,20 +7,16 @@
 <header>
   <title>Chitter</title>
   <section> 
-    <% if current_user %>
-      Welcome, <%= current_user.name%>
-    <% end %>
+    
+      Welcome, Will
+    
   </section>
 
 </header>
 <body>
 <section>
   Peeps:
-  <% @peeps.each do |tweet| %>        
-    <%= tweet.user.name %> 
-    @<%= tweet.user.username %>
-    <%= tweet.peep %>
-  <% end %>  
+    
 </section>
 
 <section>
