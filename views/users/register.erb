@@ -7,6 +7,13 @@
 <body>
   <h1>Please sign up</h1>
   <section>
+      <% if flash[:errors] %>
+        <ul id='errors'>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+        </ul>
+      <% end %>
     <form action="/users" method="post" value="<%= @user.name %>">
       Name: <input name="name" type="text" value="<%= @user.name %>">
       Username: <input name="username" type="text" value="<%= @user.username %>">

@@ -13,7 +13,7 @@ DataMapper.finalize
 DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
-  use Rack::Flash, :sweep => true
+  use Rack::Flash, :sweep => true 
   enable :sessions
   set :session_secret, 'this is secret'
 
@@ -38,7 +38,7 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/')
     else
-      flash[:notice] = "Your passwords don't match. Please try again."
+      flash.now[:errors] = @user.errors.full_messages
       erb :"users/register"
     end
   end
