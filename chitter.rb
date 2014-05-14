@@ -2,15 +2,12 @@ require 'sinatra/base'
 require 'data_mapper'
 require 'sinatra'
 require 'rack-flash'
-
-
-env = ENV["RACK_ENV"] || "development"
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 require './lib/peep'
 require './lib/user'
-DataMapper.finalize
-DataMapper.auto_upgrade!
+require_relative './data_mapper_setup'
+
+
+
 
 class Chitter < Sinatra::Base
   use Rack::Flash, :sweep => true 
@@ -26,6 +23,19 @@ class Chitter < Sinatra::Base
   get '/user/register' do
     @user = User.new
     erb :"users/register"
+  end
+
+  post '/sessions/new' do
+    email, password = params[:email], params[:password]
+    user = User.authenticate(email,password)
+    if user
+      session[:user_id] = user.id
+      redirect to('/')
+    else
+      flash[:errors] = ["The email or password is incorrect"]
+      @peeps = Peep.all
+      erb :index
+    end
   end
 
   post '/users' do

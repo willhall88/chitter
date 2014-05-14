@@ -25,3 +25,21 @@ Given(/^I have a user with the username "(.*?)"$/) do |username|
               :password => "password123", 
               :password_confirmation => "password123")
 end
+
+Given(/^I have registered and I am on the homepage$/) do
+     User.create(:name => "Will", 
+              :username => "willhall88",
+              :email => 'willhall88@hotmail.com', 
+              :password => "password123", 
+              :password_confirmation => "password123")
+     visit ('/')
+end
+
+When(/^I sign in$/) do
+  fill_in('email', :with => 'willhall88@hotmail.com')
+  fill_in('password', :with => 'password123')
+  click_button('Log in')
+end
+
+
+

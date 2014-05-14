@@ -46,3 +46,5 @@ Scenario: Username cannot be used for two users
   And I fill in "password_confirmation" with "lemon"
   And I press "Register"
   Then I should see "Username is already taken"
+
+  
