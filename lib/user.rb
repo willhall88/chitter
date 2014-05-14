@@ -7,10 +7,10 @@ class User
   has n, :peeps, :through => Resource
 
   property :id,               Serial
-  property :name,             String
-  property :username,         String,  :unique => true, :message => "This username is already taken"
-  property :email,            String, :unique => true, :message => "This email is already registered"
-  property :password_digest,  Text
+  property :name,             String, :required => true 
+  property :username,         String, :required => true, :unique => true 
+  property :email,            String, :required => true, :unique => true 
+  property :password_digest,  Text   
 
   attr_reader   :password
   attr_accessor :password_confirmation
