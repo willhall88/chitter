@@ -41,5 +41,21 @@ When(/^I sign in$/) do
   click_button('Log in')
 end
 
+Given(/^I am logged in and on the homepage$/) do
+  User.create(:name => "Will", 
+         :username => "willhall88",
+         :email => 'willhall88@hotmail.com', 
+         :password => "password123", 
+         :password_confirmation => "password123")
+       visit ('/')
+  fill_in('email', :with => 'willhall88@hotmail.com')
+  fill_in('password', :with => 'password123')
+  click_button('Log in')
+end
+
+When(/^I sign out$/) do
+  click_button('Sign out')
+end
+
 
 

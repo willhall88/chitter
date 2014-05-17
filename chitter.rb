@@ -25,6 +25,13 @@ class Chitter < Sinatra::Base
     erb :"users/register"
   end
 
+  get '/session/end' do
+    @peeps = Peep.all
+    flash[:bye] = "Goodbye, #{current_user.name}"
+    session[:user_id] = nil
+    erb :index
+  end
+
   post '/sessions/new' do
     email, password = params[:email], params[:password]
     user = User.authenticate(email,password)

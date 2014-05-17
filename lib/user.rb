@@ -10,7 +10,7 @@ class User
   property :name,             String, :required => true 
   property :username,         String, :required => true, :unique => true 
   property :email,            String, :required => true, :unique => true 
-  property :password_digest,  Text   
+  property :password_digest,  Text     
 
   attr_reader   :password
   attr_accessor :password_confirmation
@@ -18,6 +18,7 @@ class User
   validates_confirmation_of :password
   validates_uniqueness_of :email
   validates_uniqueness_of :username
+  validates_length_of :password, :min => 5
 
   def password=(password)
     @password = password
