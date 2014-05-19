@@ -22,6 +22,11 @@
       <form action='/session/end'>
         <button>Sign out</button>
       </form>
+      <form action="/peeps/new" method="post">
+        <input name="new_peep" type="text" placeholder="Type a new peep">
+        <button>New Peep</button>
+      </form>
+
     <% else %>
       <form action="/sessions/new" method="post">
         Email: <input name="email" type="text" >

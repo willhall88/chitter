@@ -21,7 +21,6 @@ describe Peep do
                         :password_confirmation => "password123")
     peep = Peep.create(:peep => "this is a peep", :user_id => user.id)
     expect(peep.user.name).to eq ("Will")
-
   end
 
 end
